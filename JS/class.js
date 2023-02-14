@@ -1,4 +1,3 @@
-//class constructora
 class Bebida {
     constructor(id, cantidad, nombre, precio, imagen){
         this.id = id,
@@ -13,7 +12,8 @@ class Bebida {
         console.log(`El titulo es ${this.nombre}, el autor es ${this.cantidad} y su precio es ${this.precio}`)
     }
 }
-//Instanciación de objetos -- respetamos orden y cantidad de atributos
+
+//creo mis objetos iniciales
 
 const bebida1 = new Bebida(1,"12x 1lt","Cerveza Salta", 2400, "cerveza.jpg")
 
@@ -27,32 +27,17 @@ const bebida5 = new Bebida(5,"11tr", "Habanas Club RON", 2100, "ron.jpg")
 
 const bebida6 = new Bebida(6, "750cc", "Jhony Walker Red Labbel", 12400, "whisky.jpg")
 
-//localStorage.clear()
-/* //crear un array de objetos: 
-let estanteria = []
-//dos posibilidades que en storage exista algo o que no exista
-//condicional que evalue si hay algo
-if(localStorage.getItem("estanteria")){
-    //si existe algo en el storage entra al if
-    estanteria = JSON.parse(localStorage.getItem("estanteria"))
-}else{
-    //si no existe, entra al else
-    console.log("Seteamos por primera vez, entra sólo en la primera vez")
-    estanteria.push(libro1, libro2, libro3, libro4, libro5, libro6)
-    localStorage.setItem("estanteria", JSON.stringify(estanteria))
-}
-console.log(estanteria) */
-
 let stock = []
-//dos posibilidades que en storage exista algo o que no exista
-//condicional que evalue si hay algo
+//creo el array a guardar en localStorage
+//condicional que evalue si hay algo 
 if(localStorage.getItem("stock")){
     //si existe algo en el storage entra al if
     stock = JSON.parse(localStorage.getItem("stock"))
 }else{
-    //si no existe, entra al else
-    console.log("Seteamos por primera vez, entra sólo en la primera vez")
+    //se crea si es la primera vez
+    console.log("creando mi primer stock")
     stock.push(bebida1, bebida2, bebida3, bebida4, bebida5, bebida6)
     localStorage.setItem("stock", JSON.stringify(stock))
 }
+//muestro el stock disponible en consola para control
 console.log(stock)
