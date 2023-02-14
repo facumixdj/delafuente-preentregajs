@@ -1,7 +1,3 @@
-
-//----------------------------------------------------------------------------------------
-//PROYECTO CON DOM:
-
 let BebidaDiv = document.getElementById("Bebida")
 let verCatalogoBtn = document.getElementById("verCatalogo")
 let ocultarCatalogoBtn = document.getElementById("ocultarCatalogo")
@@ -9,15 +5,14 @@ let guardarBebidaBtn = document.getElementById("guardarBebidaBtn")
 let inputBuscador = document.querySelector("#buscador")
 let coincidencia = document.getElementById("coincidencia")
 let selectOrden = document.getElementById("selectOrden")
-//FUNCTIONS PROYECTO DOM
-//imprimiendo los objetos en el DOM
+
 function verCatalogo(array){
-    //antes que se vuelva a imprimir, resear el div
+    //resetar el div
     BebidaDiv.innerHTML = ""
 
 
     for(let bebida of array){
-    //código para imprimir el array
+    //cimprimir el array
         //CARD
         let nuevoBebidaDiv = document.createElement("div")
         nuevoBebidaDiv.className = "col-12 col-md-6 col-lg-4 my-3"
@@ -58,7 +53,7 @@ function agregarAlCarrito(bebida){
     //setearlo en storage
     localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
     console.log(productosEnCarrito)
-    //evaluar si ya existe o no el producto
+    //consoleo que existe un carrito, se puede hacer un delete ("localStorage.clear()")para que se cree de nuevo al actualzar
 }
 
 function cargarBebida(array){
@@ -66,11 +61,9 @@ function cargarBebida(array){
     let inputNombre = document.getElementById("nombreInput")
     let inputPrecio = document.getElementById("precioInput")
     
-    //hacerlo con la function constructora
+    //creando el objeto
     const nuevoBebida = new Bebida(array.length+1, inputCantidad.value, inputNombre.value,parseInt(inputPrecio.value), "bebidaNueva.jpg")
-    console.log(nuevoBebida)
- 
-    //pushearlo o sumarlo al array
+    //sumarlo al array
     array.push(nuevoBebida)
     //guardar en storage:
     localStorage.setItem("stock", JSON.stringify(array))
@@ -138,13 +131,13 @@ ocultarCatalogoBtn.addEventListener("click", ()=>{
     BebidaDiv.innerHTML =""
 })
 
-//por cada evento, averiguar su funcionamiento, luego pasarle function con instrucciones a realizar
+
 inputBuscador.addEventListener("input", ()=>{
     buscarInfo(inputBuscador.value, stock)
 })
-//select para ordenar
+
 selectOrden.addEventListener("change", ()=>{
-    // console.log(selectOrden.value)
+
     if(selectOrden.value == "1"){
         ordenarMayorMenor(stock)
     }else if(selectOrden.value =="2"){
