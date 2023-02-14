@@ -115,13 +115,7 @@ function cargarLibro(array){
     verCatalogo(array)
     let formAgregarLibro = document.getElementById("formAgregarLibro")
     //revisar objeto form, tiene bastante métodos para profundizar
-    // console.log(formAgregarLibro)
-    // console.log(formAgregarLibro[0])
-    // console.log(formAgregarLibro[1])
-    // console.log(formAgregarLibro[2])
-    // console.log(formAgregarLibro[0].value)
-    // console.log(formAgregarLibro[1].value)
-    // console.log(formAgregarLibro[2].value)
+
     formAgregarLibro.reset()
  }
 
@@ -131,7 +125,7 @@ function cargarLibro(array){
 
 //probar evento input
 let inputBuscador = document.querySelector("#buscador")
-// console.log(inputBuscador)
+
 //por cada evento, averiguar su funcionamiento, luego pasarle function con instrucciones a realizar
 inputBuscador.addEventListener("input", ()=>{
     console.log(inputBuscador.value)
