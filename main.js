@@ -32,14 +32,14 @@ const libro6 = new Libro(6, "Mario Vargas Llosa", "La ciudad y los perros", 2400
 
 //crear un array de objetos: 
 let estanteria = []
-//dos posibilidades que en storage exista algo o que no exista
+
 //condicional que evalue si hay algo
 if(localStorage.getItem("estanteria")){
     //si existe algo en el storage entra al if
     estanteria = JSON.parse(localStorage.getItem("estanteria"))
 }else{
     //si no existe, entra al else
-    console.log("Seteamos por primera vez, entra sólo en la primera vez")
+    //console.log("Seteamos por primera vez, entra sólo en la primera vez")
     estanteria.push(libro1, libro2, libro3, libro4, libro5, libro6)
     localStorage.setItem("estanteria", JSON.stringify(estanteria))
 }
@@ -144,10 +144,10 @@ if(modoOscuro == true){
 }
 
 botonDarkMode.addEventListener("click", ()=>{
-    console.log("Btn oscuro funciona")
-    //classList add
+    
+
     document.body.classList.add("darkMode")
-    //quiero guardar algo, uso setItem
+
     localStorage.setItem("modoOscuro", true)
 })
 
@@ -157,6 +157,6 @@ botonLightMode.addEventListener("click", ()=>{
     localStorage.setItem("modoOscuro", false)
 })
 eliminarMode.addEventListener("click", ()=>{
-    //remueve la clave y su valor, elimina
+
     localStorage.removeItem("modoOscuro")
 })
