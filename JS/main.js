@@ -14,7 +14,7 @@ let selectOrden = document.getElementById("selectOrden")
 function verCatalogo(array){
     //antes que se vuelva a imprimir, resear el div
     BebidaDiv.innerHTML = ""
-//libro
+
 
     for(let bebida of array){
     //código para imprimir el array
@@ -51,7 +51,7 @@ if(localStorage.getItem("carrito")){
 }
 
 function agregarAlCarrito(bebida){
-    // console.log(libro)
+
     console.log(`El producto ${bebida.nombre} Cantidad ${bebida.cantidad} ha sido agregado al carrito y vale ${bebida.precio}`)
     //sumarlo a productosEnCarrito
     productosEnCarrito.push(bebida)
@@ -82,7 +82,7 @@ function cargarLibro(array){
 
 function buscarInfo(buscado, array){
     let busquedaArray = array.filter(
-            (libro) => libro.autor.toLowerCase().includes(buscado.toLowerCase()) || libro.titulo.toLowerCase().includes(buscado.toLowerCase())
+            (bebida) => bebida.cantidad.toLowerCase().includes(buscado.toLowerCase()) || bebida.nombre.toLowerCase().includes(buscado.toLowerCase())
         )
     if(busquedaArray.length == 0){
         coincidencia.innerHTML = `<h3>No hay coincidencias con su búsqueda</h3>`
@@ -134,8 +134,8 @@ verCatalogoBtn.onclick = function(){
     
 }
 
-ocultarCatalogoBtn.addEventListener("dblclick", ()=>{
-    librosDiv.innerHTML =""
+ocultarCatalogoBtn.addEventListener("click", ()=>{
+    BebidaDiv.innerHTML =""
 })
 
 //por cada evento, averiguar su funcionamiento, luego pasarle function con instrucciones a realizar
