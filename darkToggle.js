@@ -1,6 +1,6 @@
 let btnToggle = document.getElementById("toggleMode")
 
-//existe lo captura, sino lo setea
+
 if(localStorage.getItem("modoOscuro")){
     if(JSON.parse(localStorage.getItem("modoOscuro")) == true){
         btnToggle.innerText = `Light`
@@ -11,7 +11,7 @@ if(localStorage.getItem("modoOscuro")){
 }
 
 btnToggle.addEventListener("click", ()=>{
-    //toggle agrega y quita clase
+
     document.body.classList.toggle("darkMode")
 
     if(JSON.parse(localStorage.getItem("modoOscuro")) == false){
