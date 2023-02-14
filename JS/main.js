@@ -17,7 +17,7 @@ function verCatalogo(array){
 
     for(let libro of array){
     //código para imprimir el array
-        //creamos un div padre de la card
+        //CARD
         let nuevoLibroDiv = document.createElement("div")
         nuevoLibroDiv.className = "col-12 col-md-6 col-lg-4 my-3"
         nuevoLibroDiv.innerHTML = `
@@ -75,14 +75,6 @@ function cargarLibro(array){
     localStorage.setItem("estanteria", JSON.stringify(array))
     verCatalogo(array)
     let formAgregarLibro = document.getElementById("formAgregarLibro")
-    //revisar objeto form, tiene bastante métodos para profundizar
-    // console.log(formAgregarLibro)
-    // console.log(formAgregarLibro[0])
-    // console.log(formAgregarLibro[1])
-    // console.log(formAgregarLibro[2])
-    // console.log(formAgregarLibro[0].value)
-    // console.log(formAgregarLibro[1].value)
-    // console.log(formAgregarLibro[2].value)
     formAgregarLibro.reset()
  }
 
@@ -106,14 +98,12 @@ function buscarInfo(buscado, array){
 
 //functions ordenar:
 function ordenarMenorMayor(array){
-    //copia array original, para no modificar estanteria
     const menorMayor = [].concat(array)
     menorMayor.sort((param1, param2)=> param1.precio - param2.precio)
     verCatalogo(menorMayor)
 }
 
 function ordenarMayorMenor(array){
-    //array que recibe y lo copia
     const mayorMenor = [].concat(array)
     mayorMenor.sort((a,b)=> b.precio - a.precio)
     verCatalogo(mayorMenor)
@@ -168,51 +158,3 @@ selectOrden.addEventListener("change", ()=>{
         verCatalogo(estanteria)
     }
 })
-
-
-
-
-//CLASE N°6 STORAGE
-
-//local
-//para cargar/ setear utilizamos el setItem
-//recibe dos parámetros
-//primero clave, segundo valor 
-// localStorage.setItem("cursoCoder", "34150")
-// localStorage.setItem("comidaFav", "asado")
-// //cuando accedo o manipula la misma clave (sobreescribe el valor)
-// localStorage.setItem("comidaFav", "fideos")
-
-//para captura o traerme del storage
-//método getItem
-//tiene un sólo parámetro y es la clave que deseo captura
-
-// // console.log(localStorage.getItem("cursoCoder"))
-// let curso = localStorage.getItem("cursoCoder")
-// //en la variable se guarda el valor 
-// console.log(curso)
-// console.log(localStorage.getItem("comidaFav"))
-// console.log(localStorage.getItem("deporteFav"))
-
-// //sessionStorage
-// sessionStorage.setItem("cancion", "Viva la vida")
-// sessionStorage.setItem("banda", "Coldplay")
-
-// console.log(sessionStorage.getItem("banda"))
-// //dos lugares distintos de almacenamiento
-// console.log(sessionStorage.getItem("comidaFav"))
-
-//set un objeto o un array de objetos
-// Si utilizamos objeto JSON
-//para setear stringify
-// localStorage.setItem("primerLibro", JSON.stringify(libro1))
-// localStorage.setItem("misLibros", JSON.stringify(estanteria))
-// // console.log(estanteria);
-
-// //método transforme de texto plano a la notación nativa de JS
-// //JSON.parse
-// console.log(localStorage.getItem("primerLibro"))
-// console.log(localStorage.getItem("misLibros"))
-
-// console.log(JSON.parse(localStorage.getItem("primerLibro")))
-// console.log(JSON.parse(localStorage.getItem("misLibros")))
