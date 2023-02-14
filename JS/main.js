@@ -2,7 +2,7 @@
 //----------------------------------------------------------------------------------------
 //PROYECTO CON DOM:
 
-let librosDiv = document.getElementById("libros")
+let BebidaDiv = document.getElementById("Bebida")
 let verCatalogoBtn = document.getElementById("verCatalogo")
 let ocultarCatalogoBtn = document.getElementById("ocultarCatalogo")
 let guardarLibroBtn = document.getElementById("guardarLibroBtn")
@@ -13,30 +13,31 @@ let selectOrden = document.getElementById("selectOrden")
 //imprimiendo los objetos en el DOM
 function verCatalogo(array){
     //antes que se vuelva a imprimir, resear el div
-    librosDiv.innerHTML = ""
+    BebidaDiv.innerHTML = ""
+//libro
 
-    for(let libro of array){
+    for(let bebida of array){
     //código para imprimir el array
         //CARD
-        let nuevoLibroDiv = document.createElement("div")
-        nuevoLibroDiv.className = "col-12 col-md-6 col-lg-4 my-3"
-        nuevoLibroDiv.innerHTML = `
-        <div id="${libro.id}" class="card" style="width: 18rem;">
-            <img class="card-img-top img-fluid" style="height: 200px;"src="assets/${libro.imagen}" alt="${libro.titulo} de ${libro.autor}">
+        let nuevoBebidaDiv = document.createElement("div")
+        nuevoBebidaDiv.className = "col-12 col-md-6 col-lg-4 my-3"
+        nuevoBebidaDiv.innerHTML = `
+        <div id="${bebida.id}" class="card" style="width: 18rem;">
+            <img class="card-img-top img-fluid" style="height: 200px;"src="assets/${bebida.imagen}" alt="${bebida.nombre} de ${bebida.cantidad}">
             <div class="card-body">
-                <h4 class="card-title">${libro.titulo}</h4>
-                <p>Autor: ${libro.autor}</p>
-                <p class="">Precio: ${libro.precio}</p>
-                <button id="agregarBtn${libro.id}" class="btn btn-outline-success">Agregar al carrito</button>
+                <h4 class="card-title">${bebida.nombre}</h4>
+                <p>Cantidad: ${bebida.cantidad}</p>
+                <p class="">Precio: ${bebida.precio}</p>
+                <button id="agregarBtn${bebida.id}" class="btn btn-outline-success">Agregar al carrito</button>
             </div>
         </div> 
         `
-        librosDiv.appendChild(nuevoLibroDiv)
-        let agregarBtn = document.getElementById(`agregarBtn${libro.id}`)
+        BebidaDiv.appendChild(nuevoBebidaDiv)
+        let agregarBtn = document.getElementById(`agregarBtn${bebida.id}`)
         console.log(agregarBtn)
         agregarBtn.onclick = ()=>{
             
-            agregarAlCarrito(libro)
+            agregarAlCarrito(bebida)
         }
     }
 }
@@ -49,11 +50,11 @@ if(localStorage.getItem("carrito")){
     localStorage.setItem("carrito", productosEnCarrito)
 }
 
-function agregarAlCarrito(libro){
+function agregarAlCarrito(bebida){
     // console.log(libro)
-    console.log(`El producto ${libro.titulo} de ${libro.autor} ha sido agregado al carrito y vale ${libro.precio}`)
+    console.log(`El producto ${bebida.nombre} Cantidad ${bebida.cantidad} ha sido agregado al carrito y vale ${bebida.precio}`)
     //sumarlo a productosEnCarrito
-    productosEnCarrito.push(libro)
+    productosEnCarrito.push(bebida)
     //setearlo en storage
     localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
     console.log(productosEnCarrito)
@@ -72,7 +73,7 @@ function cargarLibro(array){
     //pushearlo o sumarlo al array
     array.push(nuevoLibro)
     //guardar en storage:
-    localStorage.setItem("estanteria", JSON.stringify(array))
+    localStorage.setItem("stock", JSON.stringify(array))
     verCatalogo(array)
     let formAgregarLibro = document.getElementById("formAgregarLibro")
     formAgregarLibro.reset()
@@ -126,10 +127,10 @@ function ordenarAlfabeticamenteTitulo(array){
 
  //EVENTOS:
 guardarLibroBtn.addEventListener("click", ()=>{
-    cargarLibro(estanteria)
+    cargarLibro(stock)
 })
 verCatalogoBtn.onclick = function(){
-    verCatalogo(estanteria)
+    verCatalogo(stock)
     
 }
 
@@ -139,18 +140,18 @@ ocultarCatalogoBtn.addEventListener("dblclick", ()=>{
 
 //por cada evento, averiguar su funcionamiento, luego pasarle function con instrucciones a realizar
 inputBuscador.addEventListener("input", ()=>{
-    buscarInfo(inputBuscador.value, estanteria)
+    buscarInfo(inputBuscador.value, stock)
 })
 //select para ordenar
 selectOrden.addEventListener("change", ()=>{
     // console.log(selectOrden.value)
     if(selectOrden.value == "1"){
-        ordenarMayorMenor(estanteria)
+        ordenarMayorMenor(stock)
     }else if(selectOrden.value =="2"){
-        ordenarMenorMayor(estanteria)
+        ordenarMenorMayor(stock)
     }else if(selectOrden.value == "3"){
-        ordenarAlfabeticamenteTitulo(estanteria)
+        ordenarAlfabeticamenteTitulo(stock)
     }else{
-        verCatalogo(estanteria)
+        verCatalogo(stock)
     }
 })
