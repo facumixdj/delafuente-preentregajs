@@ -1,7 +1,6 @@
 //class constructora
 class Libro {
     constructor(id, autor, titulo, precio, imagen){
-        //propiedades o atributos de nuestra clase
         this.id = id,
         this.autor = autor,
         this.titulo = titulo,
@@ -16,7 +15,7 @@ class Libro {
 }
 //Instanciación de objetos -- respetamos orden y cantidad de atributos
 
-const libro1 = new Libro(1,"Jorge Luis Borges","Aleph", 900, "AlephBorges.jpg")
+const libro1 = new Libro(1,"Cerveza Salta","12x 1lt", 900, "cerveza.jpg")
 
 const libro2 = new Libro(2,"Gabriel García Marquez","Cien años de Soledad", 4500, "CienSoledadMarquez.jpg")
 

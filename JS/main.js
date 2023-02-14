@@ -80,10 +80,6 @@ function cargarLibro(array){
 
 
 function buscarInfo(buscado, array){
-        //condición compuesta || &&
-        //coincidencia total, ej:
-        // libro.autor.toLowerCase() == buscado.toLowerCase() || libro.titulo.toLowerCase() == buscado.toLowerCase()
-        // quiero una coincidencia parcial: método includes
     let busquedaArray = array.filter(
             (libro) => libro.autor.toLowerCase().includes(buscado.toLowerCase()) || libro.titulo.toLowerCase().includes(buscado.toLowerCase())
         )
