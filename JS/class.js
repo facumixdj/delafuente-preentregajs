@@ -15,18 +15,19 @@ class Libro {
 }
 //Instanciación de objetos -- respetamos orden y cantidad de atributos
 
-const libro1 = new Libro(1,"Cerveza Salta","12x 1lt", 900, "cerveza.jpg")
+const libro1 = new Libro(1,"12x 1lt","Cerveza Salta", 2400, "cerveza.jpg")
 
-const libro2 = new Libro(2,"Gabriel García Marquez","Cien años de Soledad", 4500, "CienSoledadMarquez.jpg")
+const libro2 = new Libro(2,"6x 1ltr","Fernet Branca", 4500, "fernet branca.jpg")
 
-const libro3 = new Libro(3,"Isabel Allende", "Paula", 2800, "PaulaAllende.jpg")
+const libro3 = new Libro(3,"20 x1ltr", "Vino Toro", 2500, "vinotoro.jpg")
 
-const libro4 = new Libro(4,"Jorge Luis Borges","Ficciones", 1400, "FiccionesBorges.jpg")
+const libro4 = new Libro(4,"1ltr","Absolute Vodka", 6500, "VODKA.jpg")
 
-const libro5 = new Libro(5,"Mario Benedetti", "Andamios", 2200, "AndamiosBenedetti.jpg")
+const libro5 = new Libro(5,"11tr", "Habanas Club RON", 2100, "ron.jpg")
 
-const libro6 = new Libro(6, "Mario Vargas Llosa", "La ciudad y los perros", 2400, "CiudadPerrosVargasLlosa.jpg")
+const libro6 = new Libro(6, "750cc", "Jhony Walker Red Labbel", 12400, "whisky.jpg")
 
+localStorage.clear()
 //crear un array de objetos: 
 let estanteria = []
 //dos posibilidades que en storage exista algo o que no exista
