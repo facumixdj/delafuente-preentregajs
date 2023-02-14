@@ -5,7 +5,7 @@
 let BebidaDiv = document.getElementById("Bebida")
 let verCatalogoBtn = document.getElementById("verCatalogo")
 let ocultarCatalogoBtn = document.getElementById("ocultarCatalogo")
-let guardarLibroBtn = document.getElementById("guardarLibroBtn")
+let guardarBebidaBtn = document.getElementById("guardarBebidaBtn")
 let inputBuscador = document.querySelector("#buscador")
 let coincidencia = document.getElementById("coincidencia")
 let selectOrden = document.getElementById("selectOrden")
@@ -61,22 +61,22 @@ function agregarAlCarrito(bebida){
     //evaluar si ya existe o no el producto
 }
 
-function cargarLibro(array){
-    let inputAutor = document.getElementById("autorInput")
-    let inputTitulo = document.getElementById("tituloInput")
+function cargarBebida(array){
+    let inputCantidad = document.getElementById("cantidadInput")
+    let inputNombre = document.getElementById("nombreInput")
     let inputPrecio = document.getElementById("precioInput")
     
     //hacerlo con la function constructora
-    const nuevoLibro = new Libro(array.length+1, inputAutor.value, inputTitulo.value,parseInt(inputPrecio.value), "libroNuevo.jpg")
-    console.log(nuevoLibro)
+    const nuevoBebida = new Bebida(array.length+1, inputCantidad.value, inputNombre.value,parseInt(inputPrecio.value), "bebidaNueva.jpg")
+    console.log(nuevoBebida)
  
     //pushearlo o sumarlo al array
-    array.push(nuevoLibro)
+    array.push(nuevoBebida)
     //guardar en storage:
     localStorage.setItem("stock", JSON.stringify(array))
     verCatalogo(array)
-    let formAgregarLibro = document.getElementById("formAgregarLibro")
-    formAgregarLibro.reset()
+    let formAgregarBebida = document.getElementById("formAgregarBebida")
+    formAgregarBebida.reset()
  }
 
 
@@ -126,8 +126,8 @@ function ordenarAlfabeticamenteTitulo(array){
 
 
  //EVENTOS:
-guardarLibroBtn.addEventListener("click", ()=>{
-    cargarLibro(stock)
+guardarBebidaBtn.addEventListener("click", ()=>{
+    cargarBebida(stock)
 })
 verCatalogoBtn.onclick = function(){
     verCatalogo(stock)

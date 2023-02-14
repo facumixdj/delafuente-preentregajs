@@ -82,7 +82,7 @@
                     <button id="ocultarCatalogo" class="btn btn-success">Ocultar Catálogo</button>
                 </div>
                 <div class="col-4">
-                    <button id="agregarLibro" data-bs-toggle="modal" data-bs-target="#idModalAgregarLibro" class="btn btn-success">Agregar libro</button>
+                    <button id="agregarBebida" data-bs-toggle="modal" data-bs-target="#idModalAgregarBebida" class="btn btn-success">Agregar Bebida</button>
                     
                 </div>
 
@@ -98,24 +98,24 @@
     
 
     <!--Modals-->
-    <!--Modal Agregar Libro-->
-    <div class="modal fade" id="idModalAgregarLibro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--Modal Agregar Bebida-->
+    <div class="modal fade" id="idModalAgregarBebida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Agregar Libro</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Agregar Bebida</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal-body">
-              <form id="formAgregarLibro">
+              <form id="formAgregarBebida">
                 <div class="mb-3">
-                  <label for="titulo" class="form-label">Titulo</label>
-                  <input type="text" class="form-control" id="tituloInput" aria-describedby="titulo">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombreInput" aria-describedby="nombre">
                   
                 </div>
                 <div class="mb-3">
-                  <label for="autor" class="form-label">Autor</label>
-                  <input type="text" class="form-control" id="autorInput" aria-describedby="autor">
+                  <label for="cantidad" class="form-label">Cantidad</label>
+                  <input type="text" class="form-control" id="cantidadInput" aria-describedby="cantidad">
                   
                 </div>
                 <div class="mb-3">
@@ -128,7 +128,7 @@
             
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="text" id="guardarLibroBtn" class="btn btn-success" data-bs-dismiss="modal">Guardar Libro</button>
+              <button type="text" id="guardarBebidaBtn" class="btn btn-success" data-bs-dismiss="modal">Guardar Bebida</button>
             </div>
           </div>
         </div>
